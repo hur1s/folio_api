@@ -12,7 +12,7 @@
 		    data = $(this).serialize() + "&" + $.param(data);
 		    $.ajax({
 		      type: "POST",
-		      dataType: "text",
+		      dataType: "json",
 		      url: "response.php", //Relative or absolute path to response.php file
 		      data: data,
 		      success: function(data) {
@@ -30,7 +30,7 @@
 	</head>
 	<body>
 		<!--Put the following in the <body>-->
-		<form action="return.php" class="js-ajax-php-json" method="post" accept-charset="utf-8">
+		<form action="response.php" class="js-ajax-php-json" method="post" accept-charset="utf-8">
 		  <input type="submit" name="submit" value="Submit form"  />
 		</form>
 	</body>
