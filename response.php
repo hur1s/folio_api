@@ -30,7 +30,7 @@ function getLatest($length) {
 	$projectRequest->howMany = $length;
 	$projectCollection = Project::GetCollection($projectRequest);
   
-  $return["data"] = json_encode($projectCollection);
+  $return["data"] = $projectCollection;
   echo json_encode($return);
 }
 
