@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Test</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+		$("document").ready(function(){
+		  $(".js-ajax-php-json").submit(function(){
+		    var data = {
+		      "action": "latest",
+			  "length": 8
+		    };
+		    data = $(this).serialize() + "&" + $.param(data);
+		    $.ajax({
+		      type: "POST",
+		      dataType: "text",
+		      url: "response.php", //Relative or absolute path to response.php file
+		      data: data,
+		      success: function(data) {
+				console.log(data);
+		      }
+		    }).done(function() {
+				console.log("done");
+			}).fail(function(jqXHR, textStatus) {
+				console.log("fail:" + textStatus);
+			});
+		    return false;
+		  });
+		});
+		</script>
+	</head>
+	<body>
+		<!--Put the following in the <body>-->
+		<form action="return.php" class="js-ajax-php-json" method="post" accept-charset="utf-8">
+		  <input type="submit" name="submit" value="Submit form"  />
+		</form>
+	</body>
+</html>
